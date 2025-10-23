@@ -39,6 +39,9 @@ void scanNetworks()
 
   int numberOfNetworks = WiFi.scanNetworks();
 
+  // Add delay so the terminal can catch up
+  delay(3000);
+
   Serial.print("Number of networks found: ");
   Serial.println(numberOfNetworks);
 
@@ -90,6 +93,10 @@ void setup()
 {
 
   Serial.begin(115200);
+
+  // Print MAC address
+  Serial.println("MCU MAC address: " + WiFi.macAddress());
+
 
   scanNetworks();
   connectToNetwork();
